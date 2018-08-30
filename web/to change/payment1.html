@@ -1,0 +1,198 @@
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="homecss.css">
+        
+<style>
+   
+    
+    
+input[type=text],input[type=month] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 100%;
+}
+p {
+    font-size: 110%;
+    color: sienna;
+    
+}
+input[type=submit] {
+    width: 30%;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    background-color: #99ff99;
+}
+input[type=text]:focus {
+    border: 3px solid plum;
+    color: black;
+}
+
+
+
+</style>        
+<script>
+ function myfun(){
+
+
+var x1=document.getElementById("cardno").value;
+var num= /^[0-9]+$/;
+var nam= /^[a-zA-Z]+$/; 
+var x2=document.getElementById("cardname").value;
+var x3=document.getElementById("validity").value;
+var x4=document.getElementById("cvv").value;
+
+//validate card no.
+if(x1.length<16){
+    document.getElementById("span1").innerHTML="Size of cardno is 16";
+      
+}
+else if(x1.length<1){
+document.getElementById("span1").innerHTML="cardno Cannot be empty";
+
+}
+else if(x1.length>16){
+    document.getElementById("span1").innerHTML="Max Size of cardno is 16";
+      
+}
+else if(x1.length<17){
+if(!x1.match(num)){
+document.getElementById("span1").innerHTML="please provide only numbers";
+
+}
+else{
+    document.getElementById("span1").innerHTML="";
+    
+}
+}
+
+//card name
+if(x2.length<1){
+document.getElementById("span2").innerHTML="card name Cannot be empty";
+
+}
+
+else if(x2.length>1){
+if(!x2.match(nam)){
+document.getElementById("span2").innerHTML="please do not type numbers";
+
+}
+else{
+    document.getElementById("span2").innerHTML="true";
+    
+}
+}
+
+//validity
+if(x3.length<4){
+    document.getElementById("span3").innerHTML="Size of validity is 4";
+      
+}
+else if(x3.length<1){
+document.getElementById("span3").innerHTML="validity Cannot be empty";
+
+}
+else if(x3.length>4){
+    document.getElementById("span3").innerHTML="Max Size of validity is 4";
+      
+}
+else if(x3.length<5){
+if(!x3.match(num)){
+document.getElementById("span3").innerHTML="please provide only numbers";
+
+}
+else{
+    document.getElementById("span3").innerHTML="";
+    
+}
+}
+
+//cvv
+{
+if(x4.length<3){
+    document.getElementById("span4").innerHTML="Size of cvv is 3";
+      return false;
+}
+}
+if(x4.length<1){
+document.getElementById("span4").innerHTML="cvv Cannot be empty";
+return false;
+}
+if(x4.length>3){
+    document.getElementById("span4").innerHTML="Max Size of cvv is 3";
+      return false;
+}
+else if(x4.length<4){
+if(!x4.match(num)){
+document.getElementById("span4").innerHTML="please provide only numbers";
+return false;
+}
+else{
+    document.getElementById("span4").innerHTML="true";
+    return true;
+}
+}
+
+
+}           
+//action="PaymentCabController" method="post"           
+</script>
+        
+    </head>
+    <body>
+    <center>
+        <h1>WELCOME TO HDFC ONLINE PORTAL</h1>
+    </center>
+        <BR>
+        <BR>
+        
+       
+                    
+        <form action="PaymentCabController" method="post"> 
+             <table>
+            
+            <tr>
+                <td>CARD NUMBER:</td>
+               <td> <input type="text" name="cardno" id="cardno"  placeholder="Card Number " /></td>
+               <td> <span style="color:blue"  id=span1></span></td>
+                
+            </tr>
+            <tr>
+               <td> CARD HOLDER NAME:</td>
+               <td> <input type="text" name="cardname" id="cardname" placeholder="Your name"/></td>
+              <td>  <span style="color:blue"  id=span2></span></td>
+                
+  </tr>
+  <tr>
+  
+               <td> VALIDITY:</td>
+              <td>  <INPUT type="month" name="validity" id="validity"  /></td>
+              <td>  <span style="color:blue"  id=span3></span></td>
+  
+  </tr>
+  <tr>
+              <td>  CVV:</td>
+             <td>   <input type="text" name="cvv"  id="cvv" placeholder="CVV"/></td>
+             <td>   <span style="color:blue"  id=span4></span></td>
+  
+  </tr>
+  
+  
+  
+
+        </table>
+            <br>
+            <br>
+            <center><input type="submit" value="submit" onclick="return myfun()"/></center>
+        </form>
+
+        
+        </body>
+</html>

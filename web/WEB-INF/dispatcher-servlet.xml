@@ -1,0 +1,115 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"       
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd       
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-2.5.xsd">  
+    <context:annotation-config/>
+  <context:component-scan base-package="com.tm.pro" />
+      <bean id="jspViewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+ <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver"/>
+        <property name="url" value="jdbc:derby://localhost:1527/sample"/>
+        <property name="username" value="app"/>
+        <property name="password" value="app"/>
+    </bean>    
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+        <property name="mappingResources">
+            <list>
+                <value>com/tm/pro/mapping/req.hbm.xml</value>
+                <value>com/tm/pro/mapping/metroloc.hbm.xml</value>
+                <value>com/tm/pro/mapping/mumbaiCost.hbm.xml</value>
+                <value>com/tm/pro/mapping/mumbaiCar.hbm.xml</value>
+                <value>com/tm/pro/mapping/payment.hbm.xml</value>
+                <value>com/tm/pro/mapping/feedback.hbm.xml</value>
+                <value>com/tm/pro/mapping/chennaiLoc.hbm.xml</value>
+                <value>com/tm/pro/mapping/chennaiCost.hbm.xml</value>
+                <value>com/tm/pro/mapping/chennaiCar.hbm.xml</value>
+                <value>com/tm/pro/mapping/kolkataLoc.hbm.xml</value>
+                <value>com/tm/pro/mapping/kolkataCost.hbm.xml</value>
+                <value>com/tm/pro/mapping/kolkataCar.hbm.xml</value>
+                <value>com/tm/pro/mapping/delhiLoc.hbm.xml</value>
+                <value>com/tm/pro/mapping/delhiCost.hbm.xml</value>
+                <value>com/tm/pro/mapping/delhiCar.hbm.xml</value>
+                 </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.DerbyDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>       
+    </bean>
+       
+    <bean id="rdao" class="com.tm.pro.dao.ReqDAOImpl">
+        <property name="metroLocation" ref="met"/>
+    </bean>   
+  <bean id="met" class="com.tm.pro.bean.MetromumbaiLocation"/>
+  
+  
+   <bean id="aaa" class="com.tm.pro.service.ReqServiceImpl">
+        <property name="reqDAO" ref="dao"/>
+    </bean>
+    <bean id="dao" class="com.tm.pro.dao.ReqDAOImpl">
+        <property name="ht" ref="ht"/>
+    </bean>
+    
+    
+       <bean id="bbb" class="com.tm.pro.service.StatusServiceImpl">
+        <property name="statusDAO" ref="statusDAO"/>
+    </bean>
+    <bean id="statusDAO" class="com.tm.pro.dao.StatusDAOImpl">
+        <property name="ht" ref="ht"/>
+    </bean>
+    
+           <bean id="ccc" class="com.tm.pro.service.BookCabServiceImpl">
+        <property name="bookCabDAO" ref="bookCabDAO"/>
+    </bean>
+    <bean id="bookCabDAO" class="com.tm.pro.dao.BookCabDAOImpl">
+        <property name="ht" ref="ht"/>
+    </bean>
+    
+    
+               <bean id="ddd" class="com.tm.pro.service.PaymentServiceImpl">
+        <property name="paymentDAO" ref="paymentDAO"/>
+    </bean>
+    <bean id="paymentDAO" class="com.tm.pro.dao.PaymentDAOImpl">
+        <property name="ht" ref="ht"/>
+    </bean>
+    
+                   <bean id="eee" class="com.tm.pro.service.CancelServiceImpl">
+        <property name="cancelDAO" ref="cancelDAO"/>
+    </bean>
+    <bean id="cancelDAO" class="com.tm.pro.dao.CancelDAOImpl">
+        <property name="ht" ref="ht"/>
+    </bean>
+    
+                       <bean id="fff" class="com.tm.pro.service.FeedbackServiceImpl">
+        <property name="feedbackDAO" ref="feedbackDAO"/>
+    </bean>
+    <bean id="feedbackDAO" class="com.tm.pro.dao.FeedbackDAOImpl">
+        <property name="ht" ref="ht"/>
+    </bean>
+    
+    
+                          <bean id="ggg" class="com.tm.pro.service.AdminUpdateServiceImpl">
+        <property name="adminUpdateDAO" ref="adminUpdateDAO"/>
+    </bean>
+    <bean id="adminUpdateDAO" class="com.tm.pro.dao.AdminUpdateDAOImpl">
+        <property name="ht" ref="ht"/>
+    </bean>
+    
+    <bean id="ht" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+</beans>

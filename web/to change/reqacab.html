@@ -1,0 +1,110 @@
+<html>
+    <head>
+                
+        <title>Request A Cab</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="homecss.css">
+    </head>    
+    <body>
+    <header>
+            <li> 
+                
+                <a href="#home">Home</a>
+                
+            </li>
+           
+            <li> 
+                <a href="#news">Cab Features</a>
+            </li>
+  
+            <li> 
+                <a href="#" >Charge Details</a> 
+            </li>
+        </header>
+    
+    
+        <form name="login" action="A" method="post">
+           <table border='0'>
+                <tr>
+                    <td>CITY</td>
+                    <td>
+                        <select name='city' onchange="if (this.value==='delhi'){this.form['service1'].style.visibility='visible'; 
+                        this.form['service1'].name='service' }
+                        else 
+                            {this.form['service1'].style.visibility='hidden'};"> 
+                            <option>SELECT</option>
+                            <option value='delhi'>DELHI</option>
+                            <option value="mumbai">MUMBAI</option>
+                            <option value="kolkata">KOLKATA</option>
+                            <option value="chennai">CHENNAI</option> 
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SERVICES</td>
+                    <td>
+                        <input type="radio" name="service1" value="NON A/C" style="visibility:visible" />NON A/C  
+                        <input type="radio" name="service" value="A/C" style="visibility:visible"/> A/C </td>
+                 
+                </tr>
+                <tr>
+                    <td>DATE</td>
+                    <td><input type="date" name="date" required="none"/></td>
+                </tr>
+                 <tr>
+                    <td>TIME</td>
+                    <td><input type="time" name="time" required="none" /></td>
+                </tr>
+                <tr>
+                    <td>PICKUP LOCATION</td>
+                    <td><select name="pickup" required="none" />
+                            <option>SELECT</option>
+                            <option value='delhi'>DELHI</option>
+                            <option value="mumbai">MUMBAI</option>
+                            <option value="kolkata">KOLKATA</option>
+                            <option value="chennai">CHENNAI</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td>DROP LOCATION</td>
+                    <td><select name="drop" required="none" />
+                            <option>SELECT</option>
+                            <option value='delhi'>DELHI</option>
+                            <option value="mumbai">MUMBAI</option>
+                            <option value="kolkata">KOLKATA</option>
+                            <option value="chennai">CHENNAI</option>
+                    
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>LANDMARK</td>
+                    <td><input type="text" name="land"/></td>
+                </tr> 
+                <tr>
+                    <td>NAME</td>
+                    <td><input type="text" name="name" required="none"/></td>
+                </tr>
+                 <tr>
+                    <td>CONTACT NUMBER</td>
+                    <td><input type="text" name="number" required="none"/></td>
+                </tr>  
+                  <tr>
+                    <td>NUMBER PERSON</td>
+                    <td><input type="text" name="person" required="none"/></td>
+                </tr>                
+            </table>
+            <input type="submit" value="Submit"/>
+        </form>
+   
+
+<ul>
+
+        <footer>About Us</footer>
+        <footer>Contact Us</footer>
+        
+
+</ul>
+     </body>
+    </html>

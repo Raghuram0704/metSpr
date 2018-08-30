@@ -1,0 +1,424 @@
+<html>
+
+    <head>
+                
+        <title>Request A Cab</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="homecss.css">
+<style>
+	input[type=text],input[type=date],input[type=time], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=submit] {
+    width: 50%;
+    padding: 12px 20px;
+   
+    border: 1px solid #ccc;
+    
+   
+    background-color: #99ff99;
+}
+</style>
+
+    </head>    
+    <body>
+        <script type="text/javascript" >
+
+//validation
+function myfun(){
+
+var x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,i;
+
+x1=document.getElementById("city").value;
+x4=document.getElementById("date").value;
+x5=document.getElementById("time").value;
+x6=document.getElementById("pickup").value;
+x7=document.getElementById("drop").value;
+x9=document.getElementById("name").value;
+x10=document.getElementById("number").value;
+x11=document.getElementById("person").value;
+x12=document.getElementById("idcardtype").value;
+x13=document.getElementById("idcardno").value;
+
+//to check city 
+if(x1.length<1){
+document.getElementById("span1").innerHTML="location Cant be empty";
+}
+else{
+document.getElementById("span1").innerHTML="";
+}
+
+//to check a/c or non a/c
+if(document.getElementById("service1").checked==false && document.getElementById
+("service").checked==false ){
+document.getElementById("span2").innerHTML="please select your service";
+}
+else{
+document.getElementById("span2").innerHTML="";
+}
+
+
+//to check urgent or normal
+if(document.getElementById("urgent").checked==false && document.getElementById
+("normal").checked==false ){
+document.getElementById("span3").innerHTML="please select your service";
+}
+else{
+document.getElementById("span3").innerHTML="";
+}
+
+//to check date
+if(x4==""){
+document.getElementById("span4").innerHTML="please select the date";
+}
+else{
+document.getElementById("span4").innerHTML="";
+}
+
+//to check time
+if(x5==""){
+document.getElementById("span5").innerHTML="please a time date";
+}
+else{
+document.getElementById("span5").innerHTML="";
+}
+
+//to check pickup location
+if(x6==""){
+document.getElementById("span6").innerHTML="location Cant be empty";
+}
+else{
+document.getElementById("span6").innerHTML="";
+}
+
+//to check drop location
+if(x7==""){
+document.getElementById("span7").innerHTML="location Cant be empty";
+}
+else if(x7 == x6){
+document.getElementById("span7").innerHTML="change the drop location";
+}
+else {
+document.getElementById("span7").innerHTML="";
+}
+
+
+
+
+//to check name
+if(x9==""){
+document.getElementById("span9").innerHTML="Name Cant be empty";
+}
+else if(x9.length>1){
+for(i=0;i<x9.length;i++){
+if(isNaN(x9[i])){
+document.getElementById("span9").innerHTML="";
+}
+else{
+document.getElementById("span9").innerHTML="please provide only alphabates";
+break;
+}
+}
+}
+
+
+
+//to check mobile no.
+
+if(x10==""){
+document.getElementById("span10").innerHTML="mobile number Cant be empty";
+}
+else if(x10.length>1){
+for(i=0;i<x10.length;i++){
+if(x10[0]==0){
+document.getElementById("span10").innerHTML="do not start with Zero";
+}
+else if(isNaN(x10[i])){
+document.getElementById("span10").innerHTML="please provide only numbers";
+break;
+}
+else{
+document.getElementById("span10").innerHTML="";
+}
+}
+}
+
+
+//to check max no is 4
+{
+if(x11.length<1){
+document.getElementById("span11").innerHTML="NO of Persons cannot be empty";
+}
+else{
+document.getElementById("span11").innerHTML="";
+}
+}
+if(x11.length>0){
+if(x11=="0"){
+document.getElementById("span11").innerHTML=" NO. of Persons cannot be zero";
+}
+else if(x11>"4"){
+document.getElementById("span11").innerHTML="max NO. of Persons is 4";
+}
+}
+if(x11.length>1){
+document.getElementById("span11").innerHTML=" max NO. of Persons is 4";
+}
+
+//to check id type
+if(x12==""){
+document.getElementById("span12").innerHTML="ID CARD TYPE cannot be empty";
+}
+else{
+document.getElementById("span12").innerHTML="";
+}
+
+//to check IDCARD NO.
+if(x13==""){
+document.getElementById("span13").innerHTML="ID number Cant be empty";
+}
+else if(x13.length>1){
+for(i=0;i<x13.length;i++){
+if(x13[0]==0){
+document.getElementById("span13").innerHTML="do not start with Zero";
+}
+else{
+document.getElementById("span13").innerHTML="";
+}
+}
+}
+
+
+}
+
+//dropdown combo
+function mycity(){
+    
+	var selbox= document.login.pickup;
+	var selbox1= document.login.drop;
+        selbox.options.length=0;
+        selbox1.options.length=0;
+        
+	if(document.login.city.options[document.login.city.selectedIndex].value == "delhi")
+	{
+		document.login.service[1].disabled=false;
+		document.login.service[0].disabled=false;
+		
+		selbox.disabled=false;
+                selbox1.disabled=false;
+		selbox.options[selbox.options.length]=new Option('Qutub Minar','Qutub Minar');
+		selbox.options[selbox.options.length]=new Option('Red Fort','Red Fort');
+		selbox.options[selbox.options.length]=new Option('Lotus Temple','Lotus Temple');
+               selbox.options[selbox.options.length]=new Option('Dwarka','Dwarka');
+               selbox1.options[selbox1.options.length]=new Option('Qutub Minar','Qutub Minar');
+		selbox1.options[selbox1.options.length]=new Option('Red Fort','Red Fort');
+		selbox1.options[selbox1.options.length]=new Option('Lotus Temple','Lotus Temple');
+                selbox1.options[selbox1.options.length]=new Option('Dwarka','Dwarka');
+	}
+	else if(document.login.city.options[document.login.city.selectedIndex].value == 'mumbai')
+	{
+		document.login.service[1].disabled=true;
+		document.login.service[0].disabled=true;
+                
+                selbox.disabled=false;
+                selbox1.disabled=false;
+		selbox.options[selbox.options.length]=new Option('Gateway of India','Gateway of India');
+		selbox.options[selbox.options.length]=new Option('High Court','High Court');
+		selbox.options[selbox.options.length]=new Option('Crawfort Market','Crawfort Market');
+                selbox.options[selbox.options.length]=new Option('Bandra','Bandra');
+                selbox1.options[selbox1.options.length]=new Option('Gateway of India','Gateway of India');
+		selbox1.options[selbox1.options.length]=new Option('High Court','High Court');
+		selbox1.options[selbox1.options.length]=new Option('Crawfort Market','Crawfort Market');
+                selbox1.options[selbox1.options.length]=new Option('Bandra','Bandra');
+	}
+	else if(document.login.city.options[document.login.city.selectedIndex].value == 'kolkata')
+	{
+		document.login.service[1].disabled=true;
+		document.login.service[0].disabled=true;
+                
+                selbox.disabled=false;
+                selbox1.disabled=false;
+		selbox.options[selbox.options.length]=new Option('Bidhan Nagar','Bidhan Nagar');
+		selbox.options[selbox.options.length]=new Option('Howrah','Howrah');
+		selbox.options[selbox.options.length]=new Option('New Town','New Town');
+                selbox.options[selbox.options.length]=new Option('Barrackpore','Barrackpore');
+                selbox1.options[selbox1.options.length]=new Option('Bidhan Nagar','Bidhan Nagar');
+		selbox1.options[selbox1.options.length]=new Option('Howrah','Howrah');
+		selbox1.options[selbox1.options.length]=new Option('New Town','New Town');
+                selbox1.options[selbox1.options.length]=new Option('Barrackpore','Barrackpore');
+	}
+        else if(document.login.city.options[document.login.city.selectedIndex].value == 'chennai')
+        {
+                document.login.service[1].disabled=true;
+		document.login.service[0].disabled=true;
+                
+                selbox.disabled=false;
+                selbox1.disabled=false;
+		selbox.options[selbox.options.length]=new Option('T.Nagar','T.Nagar');
+		selbox.options[selbox.options.length]=new Option('Egmore','Egmore');
+		selbox.options[selbox.options.length]=new Option('Thambaram','Thambaram');
+                selbox.options[selbox.options.length]=new Option('Sholinganallur','Sholinganallur');
+                selbox1.options[selbox1.options.length]=new Option('T.Nagar','T.Nagar');
+		selbox1.options[selbox1.options.length]=new Option('Egmore','Egmore');
+		selbox1.options[selbox1.options.length]=new Option('Thambaram','Thambaram');
+                selbox1.options[selbox1.options.length]=new Option('Sholinganallur','Sholinganallur');
+        }
+        else
+        {
+                document.login.service[1].disabled=true;
+		document.login.service[0].disabled=true;
+                
+                selbox.disabled="disabled";
+                selbox1.disabled="disabled";
+         }
+        
+        
+}
+
+//when to enable and disable date
+function enableElement(elem) {
+elem.disabled = false;
+}
+function disableElement(elem) {
+elem.disabled = true;
+}
+
+
+
+
+</script>
+       
+    <header>
+            <li> 
+                
+                <a href="#home">Home</a>
+                
+            </li>
+           
+            <li> 
+                <a href="#news">Cab Features</a>
+            </li>
+  
+            <li> 
+                <a href="#" >Charge Details</a> 
+            </li>
+    </header>
+
+            <form name="login" action="A" method="post" >
+            <table border='0'>
+                <tr>
+                    <td>CITY</td>
+                    <td>
+                        <select id='city' name='city' onchange="mycity()"> 
+                            <option></option>
+                            <option value="delhi">DELHI</option>
+                            <option value="mumbai">MUMBAI</option>
+                            <option value="kolkata">KOLKATA</option>
+                            <option value="chennai">CHENNAI</option> 
+                        </select></td>
+			<td><span style="color:blue"  id=span1></span>
+                    </td>
+                </tr>
+                <tr>
+			<td>TYPE OF VECHICLE</td>
+                        <td><input type="radio" name="service" value="A/C" disabled="disabled" checked="checked" ><b>A/C</b>
+                            <input type="radio" name="service" value="NonA/C" disabled="disabled"  ><b>Non A/C</b>
+			</td>
+		</tr>
+		<tr>
+			<td>SERVICES</td>
+			<td>
+			<input id="urgent" type="radio" name="type" value="URGENT" onclick="disableElement(this.form.elements['date']);" /> URGENT  
+                        <input id="normal" type="radio" name="type" value="NORMAL" onclick="enableElement(this.form.elements['date']);" /> NORMAL	</td>	
+			<td><span style="color:blue"  id=span3></span>
+			</td>
+			
+		</tr>
+                <tr>
+                    <td>DATE</td>
+                    <td><input id="date" type="date" name="date" /></td>
+		    <td> <span style="color:blue"  id=span4></td>
+                </tr>
+                 <tr>
+                    <td>TIME</td>
+                    <td><input id="time" type="time" name="time" /></td>
+		    <td> <span style="color:blue"  id=span5>
+		    </td>
+                </tr>
+                <tr>
+                     <td>PICKUP LOCATION</td>
+                     <td>
+			<select name="pickup" disabled="disabled">
+                            <option value="">----</option>
+                            </select>
+		     </td>
+		</tr>
+                <tr>
+                    <td>DROP LOCATION</td>
+                    <td><select id="drop" name="drop" disabled="disabled">
+                          <option value="">----</option>
+                        </select></td>
+                    <td> <span style="color:blue"  id=span7> </span>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>LANDMARK</td>
+                    <td><input id="land" type="text" name="land"/></td>
+                </tr> 
+                <tr>
+                    <td>NAME</td>
+                    <td><input id="name" type="text" name="name" /></td>
+ 		<td> <span style="color:blue"  id=span9></span></td>
+                </tr>
+                 <tr>
+                    <td>CONTACT NUMBER</td>
+                    <td><input id="number" type="text" name="number" />   </td>
+                     <td>    <span style="color:blue"  id=span10></span> </td>
+                </tr>  
+                  <tr>
+                    <td>NUMBER OF PERSON</td>
+                    <td><input id="person" type="text" name="person" /> </td>
+                      <td>  <span style="color:blue"  id=span11></span></td>
+                </tr> 
+		<tr>
+                    <td>ID CARD TYPE</td>
+                    <td><select id="idcardtype" name="idcardtype"  >
+                            <option></option>
+                            <option value='delhi'>Driving Licence</option>
+                            <option value="mumbai">Passport No.</option>
+                            <option value="kolkata">Voter ID</option></select></td>
+                     <td>  <span style="color:blue"  id=span12></span></td>
+                </tr> 
+                <tr>
+                    <td>ID CARD NO.</td>  
+                    <td><input type="text" name="idcardno" id="idcardno" /></td>
+                    <td>  <span style="color:blue"  id=span13></span></td>
+                    
+                </tr>
+               
+            </table>
+            <center> <input type="submit" value="Submit" onclick="myfun()" /> </center>
+        </form> 
+       
+<br>
+
+<ul>
+
+        <footer>About Us</footer>
+        <footer>Contact Us</footer>                                   
+        
+
+</ul>
+
+
+
+     </body>
+    </html>

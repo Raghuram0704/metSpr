@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password], select {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=date], select {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 40%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=month], select {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+input[type=button]:hover {
+    background-color: red;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+<body>
+
+<h3 style="color:red">Personal Details</h3>
+
+<div>
+  <form >
+    First Name:
+    <input type="text" name="fName" id="fName" >&nbsp&nbsp<span style="color:red"  
+
+id=span1></span><br><br>
+    LastName
+    <input type="text" name="lname" id="lname" >&nbsp&nbsp<span style="color:red"  
+
+id=span2></span><br><br>
+    Gender:&nbsp;
+        <input name="gender" type="radio" id="male">Male &nbsp;
+        <input name="gender" type="radio" id="female">Female &nbsp&nbsp<span 
+
+style="color:red"  id=span3></span><br><br>
+
+    Date of Birth:<input type="date" name="date" id="date">&nbsp&nbsp <span 
+
+style="color:red"  id=span4></span><br/><br/>
+            
+    Mobile Number:<input type="text" name="mobile" id="mobile">&nbsp&nbsp <span 
+
+style="color:red"  id=span5></span><br><br>
+
+
+     Current Location:<select name="loc"  id="loc">
+  <option value=""></option>
+  <option value="chennai">Chennai</option>
+  <option value="hydearbad">Hydearbad</option>
+  <option value="coimbatore">Coimbatore</option>
+  <option value="bangalore">Bangalore</option>
+  <option value="cochin">Cochin</option>
+  <option value="calcutta">Calcutta</option>
+  </select> &nbsp&nbsp <span style="color:red"  id=span6></span> <br/><br/>
+  </form>
+</div>
+           <h3 style="color:red">Qualification Details</h3>
+<div>
+  <form >
+      Qualification:<select name="qual" id="qual">
+  <option value=""></option>
+  <option value="diploma">Diploma/Vocational</option>
+  <option value="graduation">Graduation</option>
+  <option value="pg">PG/Equivalent</option>
+  <option value="ph.d">Ph.d/M.Phil or Equivalent</option>
+  </select> &nbsp&nbsp <span style="color:red"  id=span8></span>  <br/><br/>
+
+  
+   Specialization:<input type="text" name="special" id="special" > &nbsp&nbsp <span style="color:red"  id=span9></span><p style="font-size:12px; color: green" >(Provide Specialization according to your higher degree)</p><br/><br/>
+
+
+  Year Passed out:<input type="month"  name="passed" id="passed"><span style="color:red"  id=span10></span><br/><br/><br/><br/>
+
+
+
+ </form>
+</div>
+<center> <input type="submit" value="Submit" onclick=myfunc()> </center>
+
+
+<script>
+function myfunc(){
+var x1,x2,x3,x4,x5,x6,x7,x8,x9,i;
+
+x1=document.getElementById("fName").value;
+x2=document.getElementById("lname").value;
+x3=document.getElementById("date").value;
+x4=document.getElementById("mobile").value;
+x5=document.getElementById("loc").value;
+//x6=document.getElementById("email").value;
+x7=document.getElementById("qual").value;
+x8=document.getElementById("special").value;
+x9=document.getElementById("passed").value;
+
+
+
+
+
+if(x1.length<1){
+
+document.getElementById("span1").innerHTML="First Name Cant be empty";
+}
+else if(x1.length>1){
+for(i=0;i<x1.length;i++){
+if(isNaN(x1[i])){
+document.getElementById("span1").innerHTML="";
+}
+else{
+document.getElementById("span1").innerHTML="please provide only alphabates";
+break;
+}
+}
+}
+//to check if of its not a no ------------isNan(x2[i]) checks is its a alphabet---------
+if(x2.length<1){
+document.getElementById("span2").innerHTML="Last Name Cant be empty";
+}
+else if(x2.length>1){
+for(i=0;i<x2.length;i++){
+if(isNaN(x2[i])){
+document.getElementById("span2").innerHTML="";
+}
+else{
+document.getElementById("span2").innerHTML="please provide only alphabates";
+break;
+}
+}
+
+}
+
+
+if(document.getElementById("male").checked==false && document.getElementById
+
+("female").checked==false ){
+document.getElementById("span3").innerHTML="please select your gender";
+}
+else{
+document.getElementById("span3").innerHTML="";
+
+}
+
+if(x3==""){
+document.getElementById("span4").innerHTML="please select your Date Of Birth";
+}
+else{
+document.getElementById("span4").innerHTML="";
+}
+
+
+if(x4.length<1){
+
+document.getElementById("span5").innerHTML="mobile number Cant be empty";
+}
+else if(x4.length>1){
+for(i=0;i<x4.length;i++){
+if(isNaN(x4[i])){
+document.getElementById("span5").innerHTML="please provide only numbers";
+break;
+}
+else{
+document.getElementById("span5").innerHTML="";
+}
+}
+}
+
+if(x5.length<1){
+document.getElementById("span6").innerHTML="location Cant be empty";
+}
+else{
+document.getElementById("span6").innerHTML="";
+}
+
+if(x7.length<1){
+document.getElementById("span8").innerHTML="please select Qualification";
+}
+else{
+document.getElementById("span8").innerHTML="";
+}
+
+if(x8.length<1){
+
+document.getElementById("span9").innerHTML="Please give your specialization";
+}
+else{
+document.getElementById("span9").innerHTML="";
+}
+
+if(x9.length<1){
+
+document.getElementById("span10").innerHTML="Please enter passed out month and date";
+}
+else{
+document.getElementById("span10").innerHTML="";
+}
+
+
+}
+</script>
+
+</body>
+</html>
