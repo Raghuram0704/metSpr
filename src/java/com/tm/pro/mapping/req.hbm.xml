@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.tm.pro.bean.ReqBean" table="metrocab">
+        <id name="bookingId" column="booking_id">
+            <generator class="assigned"/>
+        </id>        
+        <property name="city" column="city"/>
+        <property name="type" column="type"/>
+        <property name="service" column="service"/>
+        <property name="date" column="book_date"/>
+        <property name="time" column="book_time"/>
+        <property name="pickup" column="pickup_location"/>
+        <property name="drop" column="drop_location"/>
+        <property name="land" column="landmark"/>
+        <property name="name" column="customer_name"/>
+        <property name="number" column="customer_number"/>
+        <property name="person" column="person_travel"/>
+        <property name="idcardtype" column="id_card_type"/>
+        <property name="idcardno" column="id_card_no"/>
+        <property name="status" column="status"/>
+    </class> 
+</hibernate-mapping>

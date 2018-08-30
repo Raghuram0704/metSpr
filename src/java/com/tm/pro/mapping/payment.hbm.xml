@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.tm.pro.bean.PaymentBean" table="payment">
+    <id column="booking_id" name="bookingId">
+      <generator class="assigned"/>
+    </id>
+    <property column="card_number" name="cardNo"/>
+    <property column="card_holder_name" name="cardName"/>
+    <property column="validity" name="validity"/>
+    <property column="cvv" name="cvv"/>
+    <property column="bank_name" name="bankName"/>
+    <property column="status" name="status"/>
+     </class>
+  
+
+</hibernate-mapping>

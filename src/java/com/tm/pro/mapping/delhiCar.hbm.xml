@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.tm.pro.bean.MetrodelhiCar" table="metro_delhi_cardetails">
+    <id column="car_id" name="carId">
+      <generator class="assigned"/>
+    </id>
+    <property column="cab_number" name="cabNumber"/>
+    <property column="driver_name" name="driverName"/>
+    <property column="Employee_number" name="employeeNumber"/>
+    <property column="cab_color" name="cabColor"/>
+    <property column="driver_mobile_number" name="driverMobNum"/>
+     </class>
+</hibernate-mapping>
